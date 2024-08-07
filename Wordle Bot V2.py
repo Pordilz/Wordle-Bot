@@ -55,16 +55,16 @@ class Game:
     def calculate_freq_score(self, letters: str) -> int:
         '''
         Based on a set of letters, sum their frequency score at each position.
-        e.g. If we have 1,000 possible 5 letter words, and we look at the word
+        e.g. If we have 1,000 possible 5-letter words, and we look at the word
         STAGE - if S appears as the first letter of 300 words in the 1,000, then
         S gets a score of 300.
 
         Applying this logic to all letters in the word provides a frequency score,
         with the idea that a high word score implies that the word contains frequently
-        occurring letters (relative to the possible 5 letter words) - and is therefore a
+        occurring letters (relative to the possible 5-letter words) - and is therefore a
         good word for our next guess.
 
-        :param letters: 5 character string, case insensitive
+        :param letters: 5 character string, case-insensitive
         :returns: a frequency score (int) for the word as defined above.
         '''
 
@@ -78,7 +78,7 @@ class Game:
 
     def guess(self):
         '''
-        Given a game state, returns a dataframe of possible 5 letter words (through self.df_possible_5l_words)
+        Given a game state, returns a dataframe of possible 5-letter words (through self.df_possible_5l_words)
         ordered by the highest frequency score descending. Frequency score is calculated using
         the self.calculate_freq_score() method, vectorized for performance.
 
@@ -103,12 +103,12 @@ class Game:
 
         e.g. If I guess 'GREET', and the 3rd  E is green, I filter the dataframe of possible words
         for position 3 == "E". But if the 4th E is yellow, I also want to filter the possible words for
-        any where E falls in the 1st, 2nd, or 5th spots.
+        anywhere E falls in the 1st, 2nd, or 5th spots.
 
         We would first filter for position 4 != "E" (done in the self.update() method), then for a given word -
         check that the count of the letter "E" was >=1 outside of position 3.
 
-        :param word: 5 character string, case insensitive
+        :param word: 5 character string, case-insensitive
         :returns: a boolean, where True implies that the word has AT LEAST the letters contained in
         self.dict_misplaced_letters (e.g. 2 "E"s outside of position 3 in the above example would be acceptable).
         '''
