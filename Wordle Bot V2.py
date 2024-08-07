@@ -1,13 +1,9 @@
 import nltk
 import string
-import copy
 import re
 import pandas as pd
 import numpy as np
-import seaborn as sns
 
-from tqdm import tqdm
-from matplotlib import pyplot as plt
 from collections import defaultdict, Counter
 
 with open('answers.txt') as file:
